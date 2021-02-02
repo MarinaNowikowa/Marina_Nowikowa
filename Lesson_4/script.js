@@ -6,7 +6,7 @@ const animals = [
     isAche: false,
     isFat: true,
     warden: {
-      name: "Petr",
+      name: "George",
       age: 50,
     },
   },
@@ -26,14 +26,14 @@ const animals = [
   },
   {
     name: "wolf",
-    nickname: "peter",
+    nickname: "Pups",
     weight: 45,
     color: "grey",
     isHealthy: true,
     isAche: false,
     isFat: true,
     warden: {
-      name: "Petr",
+      name: "Klaus",
       age: 25,
     },
   },
@@ -46,7 +46,8 @@ const animals = [
     isFat: false,
     isHungry: true,
     warden: {
-      name: 20,
+      name: "Sven",
+      age: 20,
     },
   },
 ];
@@ -54,18 +55,36 @@ const animals = [
 function zoo() {
   return {
     addAnimal: (animals, newAnimalObj) => {
+      const { name, age, nickname } = newAnimalObj;
+
       animals.push(newAnimalObj);
+      console.log(`Животное ${name} с возрастом ${age} годиков
+      и кличкой ${nickname} было добавлено`);
       return animals;
     },
-    // deleteAnimal: function(animals, name) { },
-    // changeHelth: function(status, animals) {},
-    // changeWarden: function() {},
+    deleteAnimal: (animals, delAnimalObj) => {
+      for (var i = 0; i < animals.length; i++) {
+        if (animals[i].name == delAnimalObj) {
+          animals.splice(i, 1);
+        }
+      }
+      return animals;
+    },
+
+    deleteName: (animals, delAnimalName) => {
+      for (var i = 0; i < animals.length; i++) {
+        if (animals[i].name == delAnimalName) {
+          delete animals[i].name;
+        }
+      }
+      return animals;
+    },
   };
 }
 
 let zooManager = zoo();
-zooManager.addAnimal(animals, { name: "ezhik" });
+zooManager.addAnimal(animals, { name: "ezhik", age: 10, nickname: "vasja" });
+zooManager.deleteAnimal(animals, "monkey");
+zooManager.deleteName(animals, "wolf");
 
-//   zooManager.deleteAnimal(animals, name);
-
-alert(animals);
+console.log(animals);
