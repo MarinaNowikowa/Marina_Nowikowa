@@ -15,14 +15,9 @@ const compact = (array) => {
   return array.filter(Boolean);
 };
 
-console.log(compact(data)); // [1, 2, 3]
+console.log(compact(data));
 
 // Домашнее задание №3
-
-// **  Так же подзадача, представим, что числа это оценки за
-// успеваемость от 1 до 10, вывести массив с объектами, с полями
-// (фамилия, оценка, успеваемость(двоешник, хорошист, отличник -
-//     градация на ваше усмотрение))
 
 let usersAge = {
   ivanov: "19",
@@ -52,39 +47,17 @@ ageArr.forEach(([key, value]) => {
 console.log(arrAdult);
 console.log(arrChild);
 
-// Подзадача задачи №3
+//палиндром
 
-// let usersNotes = {
-//   ivanov: "10",
-//   petrov: "2",
-//   sidorov: "7",
-// };
+const isPolindrom = str => {
+  str = str.lowerCase();
+  return str === str.split('').revert().join('');
+};
 
-// let notesArr = Object.entries(usersNotes);
-// let arrResult = [];
+// Домашнее задание урока 6 из презентации
 
-// notesArr.forEach(([key, value, string]) => {
-//   let user = {
-//     name: key,
-//     notes: value,
-//     result: string,
-//   };
+const arr = [43, 54, 12, 'text', 'TeXt', 54, "54", 0, false, "car", "CAR", 43];
 
-//   if (value >= 9) {
-//     break;
-//     string = "Отличник";
-//     arrResult.push(user);
-//   }
-
-//   if (value >= 6) {
-//     break;
-//     string = "Хорошист";
-//     arrResult.push(user);
-//   }
-
-//   if (value >= 4) {
-//     string = "Двоечник";
-//     arrResult.push(user);
-//   }
-// });
-// console.log(arrResult);
+const newArr = arr.map(elem => {
+  return {value:elem, count: };
+} );
