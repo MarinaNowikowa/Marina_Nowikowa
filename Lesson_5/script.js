@@ -46,18 +46,3 @@ ageArr.forEach(([key, value]) => {
 
 console.log(arrAdult);
 console.log(arrChild);
-
-//палиндром
-
-const isPolindrom = str => {
-  str = str.lowerCase();
-  return str === str.split('').revert().join('');
-};
-
-// Домашнее задание урока 6 из презентации
-
-const arr = [43, 54, 12, 'text', 'TeXt', 54, "54", 0, false, "car", "CAR", 43];
-
-const newArr = arr.map(elem => {
-  return {value:elem, count: };
-} );
