@@ -21,8 +21,7 @@ selectForm.addEventListener("click", getForm);
 
 function selectColor(el) {
   svgImages.forEach(({ style }) => {
-    style.fill = `${el.target.style.backgroundColor}`;
-    console.log(el.target.style.backgroundColor);
+    style.fill = `${window.getComputedStyle(el.target).backgroundColor}`;
   });
 }
 

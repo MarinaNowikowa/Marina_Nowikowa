@@ -33,8 +33,7 @@
 
 .colors {
   min-height: 300px;
-  position: relative;
-  z-index: 0;
+
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto auto;
@@ -46,8 +45,7 @@
   border: black solid 1px;
   width: 100px;
   height: 100px;
-  position: relative;
-  z-index: 1;
+
   background-color: purple;
 }
 
