@@ -95,3 +95,52 @@ table {
 td {
   border: 2px black solid;
 }
+
+/* ДЗ с табами */
+
+.tabs {
+  margin: 20px;
+}
+.tabs__container {
+  display: flex;
+}
+
+.tabs__container-btn {
+  padding: 15px 30px;
+  font-size: 20px;
+  border-top-left-radius: 15spx;
+  border-top-right-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.tabs__container-btn:hover {
+  background-color: violet;
+}
+
+.tabs__container-btn.active {
+  background-color: rgb(124, 187, 145);
+}
+.closeBtn {
+  width: 20px;
+  height: 20px;
+  border: 1px black solid;
+  text-align: center;
+}
+
+.tabs__content {
+  display: flex;
+}
+
+.tabs__item {
+  display: none;
+  padding: 10px 15px;
+  width: 600px;
+  border: 1px solid rgb(196, 194, 194);
+  font-size: 20px;
+}
+
+.tabs__item.active {
+  display: block;
+}

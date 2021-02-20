@@ -69,7 +69,6 @@ data.forEach((item) => {
 
 let clickAddUser = document.querySelector(".add-user");
 let getWindow = document.querySelector(".modal");
-let closeWindow = document.getElementById("close");
 
 let userform = document.querySelector(".popap-form");
 let firstName = document.querySelector("input[name=first-name]");
@@ -81,9 +80,8 @@ clickAddUser.addEventListener("click", () => {
   getWindow.style.display = "block";
 });
 
-function close() {
-  closeWindow.style.display = "none";
-  console.log(closeWindow.style);
+function closeModalWindow() {
+  getWindow.style.display = "none";
 }
 
 userform.onsubmit = function (e) {
@@ -98,4 +96,56 @@ userform.addEventListener("submit", () => {
     First Name: ${firstName.value}
     Last Name: ${lastName.value}
     Age: ${age.value}`);
+});
+
+// const mouseTarget = document.getElementsByTagName("td");
+
+// for (let e of mouseTarget) {
+//   mouseTarget.addEventListener("mouseenter", (e) => {});
+// }
+
+// ДЗ с табами
+//выбирем все кнопки с конкретным классом
+const tabsBtn = document.querySelectorAll(".tabs__container-btn");
+
+// выбираем все объекты из массива содержимого
+const tabsItems = document.querySelectorAll(".tabs__item");
+
+//  проходимся по кнопкам и вешаем обработчик события
+tabsBtn.forEach((item) => {
+  item.addEventListener("click", () => {
+    // Переключение самих табов
+    let currentBtn = item;
+
+    tabsBtn.forEach((item) => {
+      item.classList.remove("active");
+    });
+    currentBtn.classList.add("active");
+
+    // Переключение содержимого
+    let tabId = currentBtn.getAttribute("data-tab");
+    let currentTab = document.querySelector(tabId);
+
+    tabsItems.forEach((item) => {
+      item.classList.remove("active");
+    });
+    currentTab.classList.add("active");
+  });
+});
+
+// Удаление таба и содержимого
+const closeBtn = document.querySelectorAll(".closeBtn");
+
+closeBtn.forEach((elem) => {
+  elem.addEventListener("click", () => {
+    debugger;
+    tabsItems.forEach(({ id }, index) => {
+      if (id == tabsBtn.value) {
+        tabsBtn[index].style.display = "none";
+        tabsItems[id].style.display = "none";
+      } else {
+        false;
+      }
+    });
+  });
 });
