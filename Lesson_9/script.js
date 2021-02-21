@@ -26,7 +26,7 @@
 //   list.appendChild(newAdd);
 // });
 
-// Задание из презентации
+// Задание из презентации 9.1
 
 let data = [
   {
@@ -50,30 +50,30 @@ data.forEach((item) => {
   let tr = document.createElement("tr");
   document.getElementById("list").append(tr);
 
-  let td = document.createElement("td");
-  td.innerText = item.firstName;
-  td.style.fontSize = "30px";
+  let tdFirstName = document.createElement("td");
+  tdFirstName.innerText = item.firstName;
+  tdFirstName.style.fontSize = "30px";
 
-  let td2 = document.createElement("td");
-  td2.innerText = item.lastName;
-  td2.style.fontSize = "30px";
+  let tdLastName = document.createElement("td");
+  tdLastName.innerText = item.lastName;
+  tdLastName.style.fontSize = "30px";
 
-  let td3 = document.createElement("td");
-  td3.innerText = item.age;
-  td3.style.fontSize = "30px";
+  let tdAge = document.createElement("td");
+  tdAge.innerText = item.age;
+  tdAge.style.fontSize = "30px";
 
-  tr.append(td);
-  tr.append(td2);
-  tr.append(td3);
+  tr.append(tdFirstName);
+  tr.append(tdLastName);
+  tr.append(tdAge);
 });
 
 let clickAddUser = document.querySelector(".add-user");
 let getWindow = document.querySelector(".modal");
 
 let userform = document.querySelector(".popap-form");
-let firstName = document.querySelector("input[name=first-name]");
-let lastName = document.querySelector("input[name=last-name]");
-let age = document.querySelector("input[name=age]");
+let firstNameInput = document.getElementById("first-name").value;
+let lastNameInput = document.getElementById("last-name").value;
+let ageInput = document.getElementById("age").value;
 let text = document.querySelector(".empty");
 
 clickAddUser.addEventListener("click", () => {
@@ -85,7 +85,7 @@ function closeModalWindow() {
 }
 
 userform.onsubmit = function (e) {
-  if (firstName.value === "" || lastName.value === "" || age.value === "") {
+  if (firstNameInput === "" || lastNameInput === "" || ageInput === "") {
     e.preventDefault();
     text.textContent = "Все поля должны быть заполнены!";
   }
@@ -93,10 +93,30 @@ userform.onsubmit = function (e) {
 
 userform.addEventListener("submit", () => {
   alert(`
-    First Name: ${firstName.value}
-    Last Name: ${lastName.value}
-    Age: ${age.value}`);
+    First Name: ${firstNameInput}
+    Last Name: ${lastNameInput}
+    Age: ${ageInput}`);
 });
+
+// Задание заполнения таблицы данными из модального окна
+
+let submitBtn = document.querySelector(".ok");
+
+const newUserObject = (firstName, lastName, age) => {
+  firstName = firstNameInput;
+  lastName = lastNameInput;
+  age = ageInput;
+
+  return console.log(age);
+};
+
+const addUser = () => {
+  data.push(newUserObject);
+};
+
+submitBtn.addEventListener("click", addUser);
+
+// Задание из урока mouseenter/mouseover
 
 // const mouseTarget = document.getElementsByTagName("td");
 
@@ -105,13 +125,10 @@ userform.addEventListener("submit", () => {
 // }
 
 // ДЗ с табами
-//выбирем все кнопки с конкретным классом
-const tabsBtn = document.querySelectorAll(".tabs__container-btn");
 
-// выбираем все объекты из массива содержимого
+const tabsBtn = document.querySelectorAll(".tabs__container-btn");
 const tabsItems = document.querySelectorAll(".tabs__item");
 
-//  проходимся по кнопкам и вешаем обработчик события
 tabsBtn.forEach((item) => {
   item.addEventListener("click", () => {
     // Переключение самих табов
@@ -127,9 +144,9 @@ tabsBtn.forEach((item) => {
     let currentTab = document.querySelector(tabId);
 
     tabsItems.forEach((item) => {
-      item.classList.remove("active");
+      item.classList.remove("actives");
     });
-    currentTab.classList.add("active");
+    currentTab.classList.add("actives");
   });
 });
 
@@ -138,13 +155,19 @@ const closeBtn = document.querySelectorAll(".closeBtn");
 
 closeBtn.forEach((elem) => {
   elem.addEventListener("click", () => {
-    debugger;
-    tabsItems.forEach(({ id }, index) => {
-      if (id == tabsBtn.value) {
-        tabsBtn[index].style.display = "none";
-        tabsItems[id].style.display = "none";
-      } else {
-        false;
+    let active = document.querySelector(".active");
+
+    tabsBtn.forEach((tabClose) => {
+      if (tabClose.contains(active)) {
+        tabClose.style.display = "none";
+      }
+    });
+
+    let actives = document.querySelector(".actives");
+
+    tabsItems.forEach((itemClose) => {
+      if (itemClose.contains(actives)) {
+        itemClose.style.display = "none";
       }
     });
   });

@@ -141,6 +141,6 @@ td {
   font-size: 20px;
 }
 
-.tabs__item.active {
+.tabs__item.actives {
   display: block;
 }

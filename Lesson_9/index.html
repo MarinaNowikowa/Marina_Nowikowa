@@ -4,43 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/Lesson_9/style.css" />
     <title>Lesson 9</title>
   </head>
-  <body>
+  <!-- ДЗ ТАБЫ -->
     <div class="tabs">
       <div class="tabs__container" id="select">
-        <div
-          class="tabs__container-btn active"
-          type="button"
-          data-tab="#tab_1"
-          value="tab_1"
-        >
+        <div class="tabs__container-btn active" type="button" data-tab="#tab_1">
           <p class="tabs__container-text">Tab 1</p>
           <div class="closeBtn">X</div>
         </div>
-        <div
-          class="tabs__container-btn"
-          type="button"
-          data-tab="#tab_2"
-          value="tab_2"
-        >
+        <div class="tabs__container-btn" type="button" data-tab="#tab_2">
           <p class="tabs__container-text">Tab 2</p>
           <div class="closeBtn">X</div>
         </div>
-        <div
-          class="tabs__container-btn"
-          type="button"
-          data-tab="#tab_3"
-          value="tab_3"
-        >
+        <div class="tabs__container-btn" type="button" data-tab="#tab_3">
           <p class="tabs__container-text">Tab 3</p>
           <div class="closeBtn">X</div>
         </div>
       </div>
 
       <div class="tabs__content">
-        <div class="tabs__item active" id="tab_1">
+        <div class="tabs__item actives" id="tab_1">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
             molestias veniam temporibus, corporis pariatur illo consectetur sit
@@ -62,12 +47,12 @@
         </div>
       </div>
     </div>
-
+<!-- ДЗ модальное окно и таблица -->
     <div class="wraper" id="visitor"></div>
     <table id="list"></table>
     <div class="mouseWindow"></div>
     <div class="modal">
-      <!-- В стилях display.none, удалите, чтобы увидеть -->
+      
       <div class="popap">
         <div class="popap-head">
           <div class="close" onclick="closeModalWindow()">X</div>
@@ -76,15 +61,15 @@
           <form class="popap-form">
             <label>
               <span>First Name</span>
-              <input type="text" name="first-name" />
+              <input type="text" name="first-name" id="first-name" />
             </label>
             <label>
               <span>Last Name</span>
-              <input type="text" name="last-name" />
+              <input type="text" name="last-name" id="last-name"/>
             </label>
             <label>
               <span>Age</span>
-              <input type="text" name="age" />
+              <input type="text" name="age" id="age"/>
             </label>
           </form>
           <p class="empty"></p>
@@ -96,6 +81,6 @@
       </div>
     </div>
     <div class="btn add-user">add user</div>
-    <script src="script.js"></script>
+    <script src="/Lesson_9/script.js"></script>
   </body>
 </html>
