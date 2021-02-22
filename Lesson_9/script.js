@@ -46,34 +46,39 @@ let data = [
   },
 ];
 
-data.forEach((item) => {
+const createTablUsers = (index) => {
   let tr = document.createElement("tr");
   document.getElementById("list").append(tr);
 
   let tdFirstName = document.createElement("td");
-  tdFirstName.innerText = item.firstName;
+
+  tdFirstName.innerText = data[index].firstName;
   tdFirstName.style.fontSize = "30px";
 
   let tdLastName = document.createElement("td");
-  tdLastName.innerText = item.lastName;
+  tdLastName.innerText = data[index].lastName;
   tdLastName.style.fontSize = "30px";
 
   let tdAge = document.createElement("td");
-  tdAge.innerText = item.age;
+  tdAge.innerText = data[index].age;
   tdAge.style.fontSize = "30px";
 
   tr.append(tdFirstName);
   tr.append(tdLastName);
   tr.append(tdAge);
+};
+
+data.forEach((element, i) => {
+  createTablUsers(i);
 });
 
 let clickAddUser = document.querySelector(".add-user");
 let getWindow = document.querySelector(".modal");
 
 let userform = document.querySelector(".popap-form");
-let firstNameInput = document.getElementById("first-name").value;
-let lastNameInput = document.getElementById("last-name").value;
-let ageInput = document.getElementById("age").value;
+let firstNameInput = document.getElementById("first-name");
+let lastNameInput = document.getElementById("last-name");
+let ageInput = document.getElementById("age");
 let text = document.querySelector(".empty");
 
 clickAddUser.addEventListener("click", () => {
@@ -103,28 +108,43 @@ userform.addEventListener("submit", () => {
 let submitBtn = document.querySelector(".ok");
 
 const newUserObject = (firstName, lastName, age) => {
-  firstName = firstNameInput;
-  lastName = lastNameInput;
-  age = ageInput;
+  firstName = firstNameInput.value;
+  lastName = lastNameInput.value;
+  age = ageInput.value;
 
-  return console.log(age);
+  return { firstName: firstName, lastName: lastName, age: age };
 };
 
 const addUser = () => {
-  data.push(newUserObject);
+  data.push(newUserObject());
+  createTablUsers(data.length - 1);
 };
 
 submitBtn.addEventListener("click", addUser);
 
 // Задание из урока mouseenter/mouseover
 
-// const mouseTarget = document.getElementsByTagName("td");
+const mouseTarget = document.getElementsByTagName("td");
 
-// for (let e of mouseTarget) {
-//   mouseTarget.addEventListener("mouseenter", (e) => {});
-// }
+function moveMouse(event) {
+  event.target.style.backgroundColor = "red";
+  console.log(event.target.style);
+}
 
-// ДЗ с табами
+for (let i = 0; i < mouseTarget.length; i++) {
+  mouseTarget[i].addEventListener("mouseover", moveMouse);
+}
+
+function outMouse(event) {
+  event.target.style.backgroundColor = "white";
+  console.log(event.target.parentNode.style);
+}
+
+for (let i = 0; i < mouseTarget.length; i++) {
+  mouseTarget[i].addEventListener("mouseout", outMouse);
+}
+
+// ДЗ с табами из презентации 9.2
 
 const tabsBtn = document.querySelectorAll(".tabs__container-btn");
 const tabsItems = document.querySelectorAll(".tabs__item");
